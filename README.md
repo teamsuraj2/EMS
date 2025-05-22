@@ -5,7 +5,7 @@
 
 ## 🚀 **Deploy on Heroku**  
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Rajputshivsingh65/Edit)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/shivmish8090/dnsXedit)
 
 ---
 
