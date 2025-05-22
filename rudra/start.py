@@ -20,7 +20,7 @@ def send_start_message(bot, message):
 
     markup = InlineKeyboardMarkup(row_width=2)  
     markup.add(
-        InlineKeyboardButton("Update Channel", url="https://t.me/Dns_Official_Channel"),
+        InlineKeyboardButton("Update Channel", url="https://t.me/Team_Dns_Network"),
         InlineKeyboardButton("Update Group", url="https://t.me/dns_support_group")
     )
     markup.add(InlineKeyboardButton("Add Group", url="https://t.me/EditGuardiansBot?startgroup=s&admin=delete_messages+invite_users"))
