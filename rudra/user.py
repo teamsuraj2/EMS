@@ -4,7 +4,7 @@
 # Written by Rajputshivsingh65 <choudharydilip256@gmail.com>, January 2025.
 
 from pymongo import MongoClient
-from config import MONGO_URI, DB_NAME
+from config import MONGO_URI, DB_NAME, DEFAULT_DELAY
 from rudra.logging import log_user_activity, log_group_activity
 import logging
 
@@ -18,8 +18,8 @@ except Exception as e:
 
 users_collection = db["users"]
 groups_collection = db["groups"]
-
-DEFAULT_DELAY = 3600
+group_delay = db["group_delay"] 
+pending_deletes = db["pending_deletes"]
 
 def add_user(user_id):
     try:
@@ -84,26 +84,16 @@ def get_all_groups():
         print(f"Error fetching all groups: {e}")
         return []
 
-def get_group_delay(group_id: int) -> int:
-    try:
-        group = groups_collection.find_one({"group_id": str(group_id)})
-        if group and "delay" in group:
-            return group["delay"]
-        return DEFAULT_DELAY
-    except Exception as e:
-        print(f"Error fetching delay for group {group_id}: {e}")
-        return DEFAULT_DELAY
+def get_group_delay(chat_id: int) -> int:
+    record = group_delay.find_one({"_id": chat_id})
+    if record:
+        return record["delay"]
+    return DEFAULT_DELAY
 
-def set_group_delay(group_id: int, minutes: int) -> int:
-    try:
-        delay = minutes * 60
-        groups_collection.update_one(
-            {"group_id": str(group_id)},
-            {"$set": {"delay": delay}},
-            upsert=True
-        )
-        logging.info(f"Delay set to {delay} seconds for group {group_id}")
-        return delay
-    except Exception as e:
-        print(f"Error setting delay for group {group_id}: {e}")
-        return DEFAULT_DELAY
+
+def set_group_delay(chat_id: int, delay: int):
+    group_delay.update_one(
+        {"_id": chat_id},
+        {"$set": {"delay": delay}},
+        upsert=True
+    )
