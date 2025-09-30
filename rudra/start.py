@@ -11,23 +11,23 @@ def send_start_message(bot, message):
     start_text = (
     f"Hello {full_name} 👋, I'm your 𝗘𝗱𝗶𝘁 𝗚𝘂𝗮𝗿𝗱𝗶𝗮𝗻 𝗕𝗼𝘁, here to maintain a secure environment for our discussions.\n\n"
     "🚫 𝗘𝗱𝗶𝘁𝗲𝗱 𝗠𝗲𝘀𝘀𝗮𝗴𝗲 𝗗𝗲𝗹𝗲𝘁𝗶𝗼𝗻: 𝗜'𝗹𝗹 𝗿𝗲𝗺𝗼𝘃𝗲 𝗲𝗱𝗶𝘁𝗲𝗱 𝗺𝗲𝘀𝘀𝗮𝗴𝗲𝘀 𝘁𝗼 𝗺𝗮𝗶𝗻𝘁𝗮𝗶𝗻 𝘁𝗿𝗮𝗻𝘀𝗽𝗮𝗿𝗲𝗻𝗰𝘆.\n\n"
-    "📣 𝗡𝗼𝘁𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻𝘀: 𝗬𝗼𝘂'𝗹𝗹 𝗯𝗲 𝗶𝗻𝗳𝗼𝗿𝗺𝗲𝗱 𝗲𝗮𝗰𝗵 𝘁𝗶𝗺𝗲 𝗮 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝗶𝘀 𝗱𝗲𝗹𝗲𝘁𝗲𝗱.\n\n"
-    "🌟 𝗚𝗲𝘁 𝗦𝘁𝗮𝗿𝘁𝗲𝗱:\n"
+    "• Auto-removes all types of media — photos, gifs, stickers..\n\n"
+    "Offers flexible admin controls like authentication and deletion delay:\n"
     "1. Add me to your group.\n"
     "2. I'll start protecting instantly.\n\n"
-    "⚙️ **Commands:**\n"
-    "• /set_delay <minutes> — Change the auto-delete time for media.\n"
-    "• /get_delay — Show the current auto-delete time for this group.\n\n"
+    "⚙️ **👇Commands to know more!:**\n"
+    "• /set_delay <minutes> — Change the auto-delete time for media, sticker, gift.\n"
+    "• /get_delay — Default media deletion time is 60 minute..\n\n"
     "➡️ Click on 𝗔𝗱𝗱 𝗚𝗿𝗼𝘂𝗽 to add me and keep our group safe!"
 )
 
 
     markup = InlineKeyboardMarkup(row_width=2)  
     markup.add(
-        InlineKeyboardButton("Update Channel", url="https://t.me/Team_Dns_Network"),
-        InlineKeyboardButton("Update Group", url="https://t.me/dns_support_group")
+        InlineKeyboardButton("𝖴𝗉𝖽𝖺𝗍𝖾 🚀", url="https://t.me/Team_Dns_Network"),
+        InlineKeyboardButton("𝖲𝗎𝗉𝗉𝗈𝗋𝗍 💬", url="https://t.me/dns_support_group")
     )
-    markup.add(InlineKeyboardButton("Add Group", url="https://t.me/EditGuardiansBot?startgroup=s&admin=delete_messages+invite_users"))
+    markup.add(InlineKeyboardButton("✨ 𝖠𝖽𝖽 𝖦𝗋𝗈𝗎𝗉", url="https://t.me/EditGuardiansBot?startgroup=s&admin=delete_messages+invite_users"))
 
     # Send the photo along with the message
     bot.send_photo(message.chat.id, photo="https://files.catbox.moe/h7d6wk.jpg", caption=start_text, reply_markup=markup)
