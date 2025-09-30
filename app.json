@@ -1,7 +1,7 @@
 {
   "name": "Edit",
   "description": "A Telegram bot to handle edited messages and media",
-  "repository": "https://github.com/Rajputshivsingh65/Edit",
+  "repository": "https://github.com/teamsuraj2/EMS",
   "keywords": ["telegram", "bot"],
   "env": {
     "BOT_TOKEN": {
